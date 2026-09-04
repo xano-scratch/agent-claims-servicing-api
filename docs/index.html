@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Agent Claims-Servicing API, a Xano proof artifact</title>
+    <meta
+      name="description"
+      content="A governed insurance claims API where a human adjuster and an AI agent call the same permissioned, logged endpoints. One rule layer, one audit trail."
+    />
+    <style>
+      :root {
+        --bg: #0a0c10;
+        --panel: #12151b;
+        --panel-2: #171b22;
+        --border: #262c36;
+        --fg: #e7eaf0;
+        --muted: #98a2b3;
+        --primary: #6ea8fe;
+        --primary-ink: #0a0c10;
+        --ok: #4ade80;
+        --bad: #f87171;
+      }
+      * { box-sizing: border-box; }
+      html, body { margin: 0; padding: 0; }
+      body {
+        background: var(--bg);
+        color: var(--fg);
+        font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+      }
+      .wrap { max-width: 960px; margin: 0 auto; padding: 0 24px; }
+      header { border-bottom: 1px solid var(--border); padding: 64px 0 40px; }
+      h1 { font-size: 2.1rem; line-height: 1.15; margin: 0 0 12px; letter-spacing: -0.02em; }
+      .tagline { font-size: 1.15rem; color: var(--fg); margin: 0 0 20px; max-width: 40rem; }
+      .lede { color: var(--muted); max-width: 44rem; }
+      .badges { display: flex; flex-wrap: wrap; gap: 8px; margin: 20px 0; }
+      .badge {
+        font-size: 0.78rem; padding: 4px 10px; border-radius: 999px;
+        border: 1px solid var(--border); background: var(--panel-2); color: var(--muted);
+      }
+      .badge.play { border-color: #33507e; color: #cfe0ff; background: #16233b; }
+      .meta { color: var(--muted); font-size: 0.92rem; margin: 8px 0 24px; }
+      .meta strong { color: var(--fg); font-weight: 600; }
+      .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+      .btn {
+        display: inline-flex; align-items: center; gap: 8px; text-decoration: none;
+        font-size: 0.92rem; font-weight: 600; padding: 10px 18px; border-radius: 10px;
+        border: 1px solid var(--border); transition: transform .04s ease, background .15s ease;
+      }
+      .btn:active { transform: translateY(1px); }
+      .btn.primary { background: var(--primary); color: var(--primary-ink); border-color: var(--primary); }
+      .btn.primary:hover { background: #85b6ff; }
+      .btn.ghost { background: transparent; color: var(--fg); }
+      .btn.ghost:hover { background: var(--panel-2); }
+      section { padding: 40px 0; border-bottom: 1px solid var(--border); }
+      h2 { font-size: 1.35rem; margin: 0 0 8px; letter-spacing: -0.01em; }
+      h2 + p.sub { color: var(--muted); margin-top: 0; }
+      .shot { margin: 8px 0 0; }
+      .shot img {
+        width: 100%; height: auto; border: 1px solid var(--border); border-radius: 12px; display: block;
+      }
+      .shot figcaption { color: var(--muted); font-size: 0.85rem; margin-top: 10px; text-align: center; }
+      table { width: 100%; border-collapse: collapse; margin-top: 16px; font-size: 0.9rem; }
+      th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--border); vertical-align: top; }
+      th { color: var(--muted); font-weight: 600; font-size: 0.8rem; }
+      td code { color: var(--primary); }
+      code {
+        font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+        font-size: 0.86em; background: var(--panel-2); padding: 1px 6px; border-radius: 6px;
+      }
+      pre {
+        background: var(--panel); border: 1px solid var(--border); border-radius: 12px;
+        padding: 16px; overflow-x: auto; margin: 16px 0 0;
+      }
+      pre code { background: none; padding: 0; color: var(--fg); }
+      ul.screens { list-style: none; padding: 0; margin: 16px 0 0; display: grid; gap: 10px; }
+      ul.screens li { background: var(--panel); border: 1px solid var(--border); border-radius: 10px; padding: 12px 14px; }
+      ul.screens li b { color: var(--fg); }
+      ul.screens li span { color: var(--muted); }
+      .note {
+        background: var(--panel); border: 1px solid var(--border); border-left: 3px solid var(--primary);
+        border-radius: 10px; padding: 14px 16px; color: var(--muted); font-size: 0.9rem;
+      }
+      footer { padding: 32px 0 64px; color: var(--muted); font-size: 0.85rem; }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="wrap">
+        <h1>Agent Claims-Servicing API</h1>
+        <p class="tagline">One rule layer, enforced the same for a person and an agent.</p>
+        <p class="lede">
+          A governed insurance claims API where a human adjuster and an AI agent call the same
+          permissioned, logged endpoints. An illegal claim action is refused the same way for both, and
+          every agent attempt is written to an audit trail.
+        </p>
+        <div class="badges">
+          <span class="badge play">Play 4 · Agent Intelligence Layer</span>
+          <span class="badge">Insurance · claims servicing</span>
+          <span class="badge">API-layer RBAC</span>
+        </div>
+        <p class="meta"><strong>5 tables</strong> · <strong>8 APIs</strong> · <strong>1 shared function</strong> · <strong>1 AI agent</strong></p>
+        <div class="hero-actions">
+          <a class="btn primary" href="https://github.com/xano-scratch/agent-claims-servicing-api">View on GitHub</a>
+          <a class="btn ghost" href="#use">Use this template</a>
+        </div>
+      </div>
+    </header>
+
+    <section>
+      <div class="wrap">
+        <figure class="shot">
+          <img src="screenshot.png" alt="The agent audit log: every agent attempt with its outcome, the rule that fired, and the deciding rule version." />
+          <figcaption>The agent audit log. Every agent attempt, its outcome, and the rule version that decided it.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <h2>What it demonstrates</h2>
+        <p class="sub">Why a technical evaluator would read this.</p>
+        <p>
+          The rules that govern a claim live in one API layer. A single function,
+          <code>enforce_transition</code>, is the only place a claim's status ever changes, and both the
+          human endpoint and the agent endpoint call it. So a legal move succeeds and an illegal move is
+          refused with the exact rule version that decided it, whoever asked.
+        </p>
+        <p>
+          The state machine is data, not code branches. A rule row says which roles may move a claim
+          between two statuses, at a version. The set is versioned, so a policy can tighten over time (v1
+          let handlers approve, v2 restricts approval to supervisors) while the change stays auditable and
+          the deciding version rides on every decision. Every attempt, allowed or refused, is written to a
+          readable log tagged human or agent.
+        </p>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <h2>API surface</h2>
+        <p class="sub">Every endpoint lives in the <code>claims</code> group, so paths read <code>/api:claims/&lt;name&gt;</code>.</p>
+        <table>
+          <thead>
+            <tr><th>Verb</th><th>Path</th><th>What it enforces</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>POST</td><td><code>seed/reset</code></td><td>Public. Wipes and repopulates the demo, including a pre-walked audit trail.</td></tr>
+            <tr><td>POST</td><td><code>login</code></td><td>Public. Mints a bearer token, for a human or the agent identity alike.</td></tr>
+            <tr><td>GET</td><td><code>list</code></td><td>Any signed-in identity. Claims with status and assignment.</td></tr>
+            <tr><td>GET</td><td><code>get/{claim_id}</code></td><td>Any signed-in identity. One claim with its notes and audit trail.</td></tr>
+            <tr><td>POST</td><td><code>propose-transition</code></td><td>The human path. Runs the shared guard as the caller.</td></tr>
+            <tr><td>POST</td><td><code>add-note</code></td><td>Role-guarded. The agent identity is refused, and the refusal is logged.</td></tr>
+            <tr><td>GET</td><td><code>actions</code></td><td>The audit log, filterable by actor kind.</td></tr>
+            <tr><td>POST</td><td><code>agent/service-claim</code></td><td>The agent path. Interprets an instruction, then runs the SAME guard.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <h2>Frontend screens</h2>
+        <p class="sub">React, Vite, Tailwind v4, and shadcn/ui, with paths and types derived from the query defs.</p>
+        <ul class="screens">
+          <li><b>Login / role picker.</b> <span>Sign in as a handler, a supervisor, or the agent identity, with the seeded credentials shown.</span></li>
+          <li><b>Claims board.</b> <span>Every claim with a status badge and its assignment, filterable by status.</span></li>
+          <li><b>Claim detail.</b> <span>The moves your role may make, a propose control that shows the rule outcome, notes, and recent activity.</span></li>
+          <li><b>Ask the agent.</b> <span>A plain instruction the agent reads into a target status, then the same guard decides. A legal move succeeds, an illegal one is refused.</span></li>
+          <li><b>Agent audit log.</b> <span>Every agent attempt with its outcome, the rule, and the version. The proof of the governed, logged access layer.</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="use">
+      <div class="wrap">
+        <h2>Use this template</h2>
+        <p class="sub">Clone it, deploy it, and read the one rule layer for yourself. You need Node 20.19+ and a free Xano account.</p>
+        <pre><code>git clone https://github.com/xano-scratch/agent-claims-servicing-api
+cd agent-claims-servicing-api
+npm install
+npx xanots login       # one-time browser auth with Xano
+npm run xano:deploy    # builds the frontend, deploys the backend, prints a live URL</code></pre>
+        <p style="margin-top:16px">Or hand this prompt to your coding agent:</p>
+        <pre><code>Clone https://github.com/xano-scratch/agent-claims-servicing-api and set it up.
+Run npm install, then npx xanots login, then npm run xano:deploy.
+Open the printed URL and walk me through the agent audit log.</code></pre>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <h2>Live preview</h2>
+        <div class="note">
+          The deploy ships to a fresh, auto-expiring Xano environment and injects its URL into the frontend,
+          so the app runs on seed data with no extra config. Any preview link is ephemeral and may have
+          expired. The durable artifact is this repo: clone it and run <code>npm run xano:deploy</code> for a
+          fresh live URL of your own.
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="wrap">
+        A Xano proof artifact for Play 4, the Agent Intelligence Layer. Authored in TypeScript with
+        <code>@xanots/sdk</code>. Seeded demo data only, not a production reference.
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>agent-claims-servicing-api</title>
+    <script>
+      // Pin the dark theme before first paint (the whole template set is dark),
+      // so the page never flashes light and a headless screenshot is consistent.
+      (function () {
+        try {
+          document.documentElement.classList.add("dark");
+        } catch (e) {}
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

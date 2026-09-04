@@ -1,0 +1,57 @@
+{
+  "version": 1,
+  "objects": {
+    "app:claims": {
+      "guid": "48b7aa4ff326d9dae716fb6f08af74e6",
+      "canonical": "claims",
+      "canonical_source": "code"
+    },
+    "dbo:adjuster": {
+      "guid": "ebfc5f521898a5d5508f0f6e45b14232"
+    },
+    "dbo:claim": {
+      "guid": "14c6fea7498a4bdca35fe6197b88f8c5"
+    },
+    "dbo:claim_action": {
+      "guid": "ff306718112f8ae53f7d9cc8c46cbd5e"
+    },
+    "dbo:claim_note": {
+      "guid": "b4a9aec9af83daa061f9b319a9bfae92"
+    },
+    "dbo:transition_rule": {
+      "guid": "1d51ebc0eefb1168d9fa05db9f13cd42"
+    },
+    "function:enforce_transition": {
+      "guid": "7fd6616231dca620ef6434dd742608d1"
+    },
+    "query:claims|GET|actions": {
+      "guid": "c514bf335607612c6eabc6594515726e"
+    },
+    "query:claims|GET|get/{claim_id}": {
+      "guid": "9a43058a0e260cbd12c6725e4176e52a"
+    },
+    "query:claims|GET|list": {
+      "guid": "629f6db767006bfa386f498403afa16e"
+    },
+    "query:claims|POST|add-note": {
+      "guid": "d0179f6736e3e91389d524fec6c789a1"
+    },
+    "query:claims|POST|agent/service-claim": {
+      "guid": "5969cdc87df30d71f24064a72e8e13a5"
+    },
+    "query:claims|POST|login": {
+      "guid": "90588614b64b4f6417b42452039cf09d"
+    },
+    "query:claims|POST|propose-transition": {
+      "guid": "e375a35371b8e59a800c0df6f358f8e7"
+    },
+    "query:claims|POST|seed/reset": {
+      "guid": "ec8aed703e513043c10715f750419762"
+    },
+    "toolset:claim_instruction_interpreter": {
+      "guid": "3829eafac4aacf5ead445f926a4d4ebf",
+      "canonical": "CMk6zrq-",
+      "canonical_source": "minted"
+    }
+  }
+}
